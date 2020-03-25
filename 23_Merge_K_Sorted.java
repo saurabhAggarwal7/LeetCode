@@ -11,7 +11,51 @@
 
 class mergeKSortedList{
 
+    //Sort two lists here using recursion:
+    //O(logn) extra space due to recursion
+
+    public static Node SortedMerge(Node a, Node b){
+        Node result = null;
+        if (a==null) return b;
+        if(b== null) return a;
+
+        if(a.data<=b.data){
+            result = a;
+            result.next = SortedMerge(a.next, b);
+        } else{
+            result = b;
+            result.next = SortedMerge(a, b.next);
+        }
+        return result;
+    }
+    
+    
+    //Array of lists and get a sorted output:
     public static Node mergeKLists(Node arr[], int last){
+        
+        //repeat until one list is left, thats why we took (k-1) 
+        // k is the total number of lists in array
+        while(last !=0){
+            int i=0, j= last;
+
+            //(i,j) forms a pair:
+            while(i<j){
+
+				// merge List i with List j and store 
+                // merged list in List i 
+                arr[i] = SortedMerge(arr[i],arr[j]);
+
+                //once merged move to next pair:
+                i++;
+                j--;
+
+                //if all pairs are merged, update last:
+                if(i>=j){
+                    last = j;
+                }
+            }
+        }
+
         return arr[0];
     }
 
