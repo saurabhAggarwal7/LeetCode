@@ -74,7 +74,7 @@ class mergeKSortedList{
 
     public static void main(String args[]){
         int k=3; //no of LLs
-        int n=4; //numbet of elements in List
+        //int n=4; //numbet of elements in List
 
         //Create an array to store the head nodes of the LL
         

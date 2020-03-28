@@ -18,7 +18,7 @@ A solution set is:
 
 //2 pointers Approach Left and Right pouinter:
 import java.util.Arrays; 
-import java.io.*; 
+//import java.io.*; 
 
 class GFG { 
 	// function to print triplets with 0 sum 
