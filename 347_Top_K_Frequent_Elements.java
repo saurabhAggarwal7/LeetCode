@@ -47,6 +47,13 @@ class Top_K_Frequent_Elements{
         }
 
         //Step-5: Now, iterate over the bucket elements and keep a counter to match with the input value k.
+
+        //outer loop is to loop backwards from maxFreq to 0
+        //Because we dont know till what point we need to loop back.
+        // same numbers with same frequency can also exists
+
+        //Inner loop makes sure that K=2 is only returned and not anything else extra
+        //ct takes care of k=2 values
         int ct = 0;
         List<Integer> ans = new LinkedList<>();
         for(int i=maxFreq; i>=0;i--){
