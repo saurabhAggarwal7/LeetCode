@@ -27,6 +27,7 @@ class can_jump_to_last{
             if(i+nums[i] >= lastPos){
                 lastPos = i;
             } else{
+                //3+ 0 >= 4 //FALSE SO NO JUMP POSSIBLE (test arr2)
                 int debug = 1;
             }
         }
