@@ -1,5 +1,7 @@
 
 
+/*
+
     class TreeNode {
         int data;
         TreeNode left;
@@ -40,8 +42,7 @@
 
             if(areIdentical(T, S)) {return true;}
 
-            /* If the tree with root as current node doesn't match then 
-		    try left and right subtrees one by one */
+            //If the tree with root as current node doesn't match then try left and right subtrees one by one 
             boolean left = isSubtree(T.left, S);
             boolean right = isSubtree(T.right, S);
             return left || right;
@@ -65,7 +66,7 @@
             \ 
                 30 */
                 
-            tree.root1 = new TreeNode(26); 
+            /*tree.root1 = new TreeNode(26); 
             tree.root1.right = new TreeNode(3); 
             tree.root1.right.right = new TreeNode(3); 
             tree.root1.left = new TreeNode(10); 
@@ -81,7 +82,7 @@
             \ 
             30 */
                 
-            tree.root2 = new TreeNode(10); 
+            /*tree.root2 = new TreeNode(10); 
             tree.root2.right = new TreeNode(6); 
             tree.root2.left = new TreeNode(4); 
             tree.root2.left.right = new TreeNode(30); 
@@ -91,4 +92,14 @@
             else
                 System.out.println("Tree 2 is not a subtree of Tree 1"); 
         } 
+    }*/
+
+
+class Q572SubTreeBT{
+
+    public static void main(String args[]) {
+        //test
     }
+
+    
+}

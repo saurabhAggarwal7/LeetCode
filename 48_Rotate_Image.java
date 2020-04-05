@@ -46,6 +46,44 @@ rotate the input matrix in-place such that it becomes:
 //Third Pass--> Just near by elemenst
 //Last Pass--> Inner 2x2 matrix once all the corners are rotated:
 
+//Target is to go inward/Converge inside
+
+        /*
+
+  //Actual
+  [15,13, 2, 5],
+  [14, 3, 4, 1],
+  [12, 6, 8, 9],
+  [16, 7,10,11]
+
+  //Pass-1: Taget Corner elements
+  [ 5, X, X,11],
+  [ X, X, X,X],
+  [X, X, X, X],
+  [15,X, X,16]
+
+  //Pass-2: Target next to corner
+  [ X, 13, X,X],
+  [ X, X, X,1],
+  [12, X, X, X],
+  [X,7, X,X]
+
+  //Pass-3: target next to corner to next
+  [X,X, 2, X],
+  [14, 3, 4, X],
+  [X, 6, 8, 9],
+  [X, 7,X,X]
+
+  //Pass-4 we are left with Inner most array
+  [X,X, X, X],
+  [X, 3, 4, X],
+  [X, 6, 8, X],
+  [X, X,X,X]
+        */
+
+//Question- ROTATE N times the Array then One more loop 
+//i--> j---> k three loops rotation done:
+
 class rotate_image {
 
     static int[][] rotate(int[][] matrix) {
@@ -75,33 +113,14 @@ class rotate_image {
         matrix[l - i][l - j] = two; //matrix[3][3] //matrix[3][2]//matrix[3][1]/matrix[2][2]
         matrix[l - j][i] = three;//matrix[3][0] //matrix[2][0]//matrix[1][0]/matrix[2][1]
 
-        /*
 
-  [15,13, 2, 5],
-  [14, 3, 4, 1],
-  [12, 6, 8, 9],
-  [16, 7,10,11]
-
-  [ 5, X, X,11],
-  [ X, X, X,X],
-  [X, X, X, X],
-  [15,X, X,16]
-
-    [ X, 13, X,X],
-  [ X, X, X,1],
-  [12, X, X, X],
-  [X,7, X,X]
-
-  
-
-        */
     }
 
-    // public static void main(String args[]) {
-    //     int[][] arr = { { 5, 1, 9, 11 }, { 2, 4, 8, 10 }, { 13, 3, 6, 7 }, { 15, 14, 12, 16 } };
+    public static void main(String args[]) {
+        int[][] arr = { { 5, 1, 9, 11 }, { 2, 4, 8, 10 }, { 13, 3, 6, 7 }, { 15, 14, 12, 16 } };
 
-    //     int[][] matrix = rotate(arr);
-    //     System.out.println(matrix);
-    // }
+        int[][] matrix = rotate(arr);
+        System.out.println(matrix);
+    }
 
 }
