@@ -13,6 +13,9 @@ Example 2:
 Input: root = [10,5,15,3,7,13,18,1,null,6], L = 6, R = 10
 Output: 23 */
 
+//All 3 methods will DFS traverse all nodes in worst case, and if we count in the recursion trace space cost, the complexities are as follows:
+//Time: O(n), space: O(h), where n is the number of total nodes, h is the height of the tree..
+
 import java.util.*;
 class TreeNode_938{
     TreeNode_938 left;
