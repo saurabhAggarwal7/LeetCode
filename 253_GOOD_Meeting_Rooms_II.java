@@ -38,6 +38,24 @@ The java.util.PriorityQueue.poll() method in Java is used to retrieve or fetch a
 
  */
 
+ /**
+  Normal QUEUE Vs Priority Queue (WITH HEAP) Difference in Using here:
+
+
+If Normal Queue is Used:
+i=1: {4, 9} count=1
+i=2: {2, 15} count = 2
+i=3: {16, 23} //reuse above room
+i=4: {9, 29} //count = 3 BAD //Here the problem is This will unnecesslr increase the time and count+1 as being start time 9 it could have been staretd earlier
+i=5: {36, 45} //reuse 
+
+
+//{{2, 15}, {4, 9}, {9, 29}, {16, 23}, {36, 45}}
+
+BELOW:
+
+  **/
+
 
 
 import java.util.*;
