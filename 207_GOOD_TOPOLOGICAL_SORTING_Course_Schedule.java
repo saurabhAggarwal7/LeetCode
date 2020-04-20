@@ -210,6 +210,6 @@ class course_schedule {
         //Question here is can you complete 4 courses with these Pre req requirements ??
 
         int num_courses = 4;
-        System.out.println(canFinish(num_courses, prereqs)); // FALSE
+        System.out.println(canFinish(num_courses, prereqs)); // TRUE
     }
 }
