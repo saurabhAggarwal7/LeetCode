@@ -60,6 +60,8 @@ You may assume the destination buffer array, buf, is guaranteed to have enough s
   *
   */
 
+/////NOTE for ease of undersatnding I have considered the inpiut parameter has the all the charaters and discarded the Destination Buffer thing
+
 class Read4 {
     int read4(char[] buf) {
         // returns only 4 chars at a time from file
