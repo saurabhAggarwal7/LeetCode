@@ -40,10 +40,19 @@ We create a separate function getRange(int unm1, int num2) to deal with two case
                 next++;
                 continue;
             }
-            res.add()
-            
+            res.add(getRange(next, nums[i] -1));
+
+            //2. We don't need to proceed after we have process Integer.MAX_VALUE in array
+            if(nums[i] == Integer.MAX_VALUE) 
+                return res;
+
+            //next element to compare in next run of loop    
+            next = nums[i] + 1;
         }
-        return null;
+        if(next <= upper){
+            res.add(getRange(next, upper));
+        }
+        return res;
     }
      public static void main(String args[]){
 
