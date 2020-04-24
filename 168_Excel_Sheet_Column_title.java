@@ -25,17 +25,31 @@ Input: 701
 Output: "ZY"
  */
 
-public class excel_column_name {
-    public String convertToTitle(int n) {
+class excel_column_name {
+    
+    static String convertToTitle(int n) {
         StringBuilder result = new StringBuilder();
 
+        //n= 30 result is AD
+        //this is s astring so build a string based on different sectoons of n values
+        //initially value of n is 30
+
         while(n>0){
-            n--;
-            result.insert(0, (char)('A' + n % 26));
-            n /= 26;
+
+            //itr-1: n= 30
+            //itr-2: n= 1
+
+            n--; //n=29 //n=0
+            char value = (char)('A' + n % 26); //A+ 4 = D // value = 'A' + 0 = A
+            result.insert(0, value); //D //A but we are inserting at the beginning of the string builder so it will be AD not DA
+            n /= 26; //now n is 1 //n= 0 now so loop ends
         }
 
         return result.toString();
+    }
+
+    public static void main(String args[]){
+        System.out.println(convertToTitle(30));
     }
 }
 
