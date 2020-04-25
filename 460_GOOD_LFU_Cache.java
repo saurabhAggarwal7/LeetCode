@@ -174,6 +174,9 @@ class LFU_cache {
      **/
     public void put(int key, int value) {
         // corner case: check cache capacity initilaziation:
+
+        //itr-1: key and value = 1
+        //itr-2: key and value = 2
         if (capacity == 0)
             return;
 
@@ -183,10 +186,16 @@ class LFU_cache {
             updateNode(currNode);
 
         } else {
+
+            //itr-1: key and value = 1 CurSize++
+            //itr-2: key and value = 2 CurSize++
             currSize++;
 
             // Sub-condition if overflow occurs:
             if (currSize > capacity) {
+
+                //itr-3: remove {tail node of list with min_frequency}
+                //List 0->1->2[TAIL]
 
                 // LinkedList will have key as frequencies Remember that:
                 // Get {value} from map which has the {key} = min_Frequency
@@ -204,6 +213,9 @@ class LFU_cache {
             }
 
             // reset min frequency to 1 because of adding new node
+
+            //itr-1: key and value = 1 
+            //itr-2: key and value = 2 
             min_frequency = 1;
 
             // {key and value} from input
@@ -211,8 +223,19 @@ class LFU_cache {
 
             // get the list with frequency 1, and then add new node into the list, as well
             // as into LFU cache
+
+            //itr-1: key and value = 1 DEFAULT LIST KEY=0, NEXT AND PREV=0 
+
+            //itr-2: key and value = 2 currlist already has 1 in it add 2 also
+            //CURR LIST NOW IS 0-> 2-> 1
+
+            //FREQUENCY MAP CONTAINS DIFFERENT KEYS WITH EACH AS NEW FREQUENCY LIKE 1, 2 ETC
+            //PULL OUT THE LINKEDLIST WITH FREQUENCY EQUALS 1 ELSE BY DEFAULT PULL OUT 
             DoubleLinkedList currList = frequencyMap.getOrDefault(1, new DoubleLinkedList());
             currList.addNode(newNode);
+
+            //{key=1} put the list along side this
+            //itr-2: Frequency-map: {1, 0->1->2}
             frequencyMap.put(1, currList);
             cache.put(key, newNode);
         }
@@ -261,21 +284,21 @@ class LFU_cache {
 class LFU_cache_implement {
     public static void main(String args[]) {
         LFU_cache cache = new LFU_cache(2);
-        cache.put(1, 1);
-        cache.put(2, 2);
-        cache.get(1); // returns 1
+        cache.put(1, 1); //min_frequency of key-1 = 1
+        cache.put(2, 2); //min_frequency of key-2 = 1
+        cache.get(1); // returns 1 //it's frequency is updated to 2 in the List (UpdateNode function)
 
-        cache.put(3, 3); // evicts key 2, bcz most recent frequency of use of 2 was 0 and of 1 is 1
+        cache.put(3, 3); // evicts key 2, bcz most recent frequency of use of 2 was less(min_freq=1) VS 1 is 2
 
         cache.get(2); // returns -1 (not found)
-        cache.get(3); // returns 3.
+        cache.get(3); // returns 3. //Frequency of 3 is now 2 {min_frequency=1}
 
-        cache.put(4, 4); // evicts key 1, bcz most recent frequency =1 and also 3=1. Tie is there so in
+        cache.put(4, 4); // evicts key 1, bcz most recent frequency =2 and also 3=2. Tie is there so in
                          // this least recently used means old one is evicted
 
         System.out.println(cache.get(1)); // returns -1 (not found)
-        System.out.println(cache.get(3)); // returns 3
-        System.out.println(cache.get(4)); // returns 4
+        System.out.println(cache.get(3)); // returns 3 //updates the frequcny also now to 2 {min_frequency was 1}
+        System.out.println(cache.get(4)); // returns 4 //updates the frequency also now equals 2 {min_freq was 1}
 
     }
 }
