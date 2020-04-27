@@ -24,6 +24,7 @@ class product_Except_Self {
         int[] res = new int[n];
         
         // Calculate lefts and store in res.
+        //by default it's 1 bcause to handle the empty
         int left = 1;
         for (int i = 0; i < n; i++) {
             if (i > 0)
@@ -32,10 +33,12 @@ class product_Except_Self {
         }
         
         // Calculate rights and the product from the end of the array.
+        //by default it's 1 bcause to handle the empty
         int right = 1;
         for (int i = n - 1; i >= 0; i--) {
             if (i < n - 1)
                 right = right * nums[i + 1];
+            //multiply the left and right in same loop where you are finding the right one's    
             res[i] *= right;
         }
         return res;
