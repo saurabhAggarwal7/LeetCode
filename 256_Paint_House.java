@@ -11,6 +11,7 @@ The basic idea to solve Paint House I is to define DP[i][j] as the minimum cost 
 In the beginning, DP[0][j] = cost[0][j].  Then we can use the following rules to update the table in bottom up manner. 
  */
 
+//IN THIS VERSION OF PROBLEM SAME SIDE BY SIDE COLORS ARE POSSIBLE BUT IN VERSION-II YOU NEED TO HAVE UNIQUE COLOURS SIDE BY SIDE
 
 class Paint_House {
     static int cost_compute(int[][] costs) {
@@ -25,7 +26,7 @@ class Paint_House {
             //costs[1][0] = costs[1][0] + min(costs[0][1], costs[0][2]) 
             //cost[1][0] = 16 + 2 from min(2, 17)
 
-            //GOAL IS TO PAINT ALL 3 HOUSES(0, 1, 2) WITH MIN COST AND NO DUPLICATE SIDE BY SIDE COLORS
+            //GOAL IS TO PAINT ALL 3 HOUSES(0, 1, 2) WITH MIN COST 
             //COST OF PAINITING HOUSE 1 WITH RED WILL BE COST OF PAINTING HOUSE 1 WITH RED + MIN COST OF PAINTING HOUSE BETWEEN(COST TO PAINT PREVIOUS HOUSE PAINT WITH BLUE + COST TO PAINT PREVIOUS HOUSE WITH GREEN)
             costs[i][0] = costs[i][0] + Math.min(costs[i-1][1], costs[i-1][2]);
 
@@ -90,7 +91,7 @@ class Paint_House {
         //31-3------->> min cost
         //32-19
 
-        //min cost for painting all 3 houses with min cost and making sure they are not same color with adjacents is:
+        
         //2+5+3 = 10
         //colors used --> <1, 2, 1> they are not repeated side ways so we are good
         System.out.println(cost_compute(cost));
