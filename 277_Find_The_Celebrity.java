@@ -18,6 +18,8 @@
  * 2. if b doesnt know a then b can be celebrity
  */
 
+ //Youtube : https://www.youtube.com/watch?v=LZJBZEnoYLQ
+
 class Relation{
     boolean knows(int a, int b){
         return true;
