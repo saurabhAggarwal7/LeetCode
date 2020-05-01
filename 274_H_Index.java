@@ -45,6 +45,7 @@ class H_Index_Compute {
         }
         //After loop
         /**buckets[6] is ::::::
+         * i-e count bucket sorted is SORTED NOW
          * [1, 1, 0, 1, 0, 2] 
          */
 
