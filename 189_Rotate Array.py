@@ -70,8 +70,8 @@ def rotate(nums, k):
     #helper function: reverse array
     def reverse (start, end):
         while start <end:
-            nums[start] = nums[end]
-            nums[end] = nums[start]
+            #This properly swaps elements without overwriting values prematurely.
+            nums[start], nums[end] = nums[end], nums[start]  # Correct swap
             start = start+1
             end = end -1
     
