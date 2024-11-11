@@ -46,8 +46,8 @@ Accumulate these positive differences to maximize the total profit.
 class Solution(object):
     def maxProfits(self, prices):
         max_profit = 0
-        for i in range(len(prices[i])):
-            if prices[i] > prices[i-1]:
-                max_profit += prices[i] - prices[i-1]
+        for i in range(1, len(prices)):
+            if prices[i] > prices[i - 1]:
+                max_profit += prices[i] - prices[i - 1]
         return max_profit
 
